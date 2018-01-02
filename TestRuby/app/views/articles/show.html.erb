@@ -1,0 +1,20 @@
+<h1>Listing Posts</h1>
+<table>
+  <tr>
+    <th>name</th>
+    <th>email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @data.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to 'Show', :action => :show, :uid => user.uid %></td>
+    <td><%= link_to 'Edit', :action => :edit, :uid => user.uid %></td>
+    <td><%= link_to 'Destroy', { :action => :destroy, :uid => user.uid }, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
